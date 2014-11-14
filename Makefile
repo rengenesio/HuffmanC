@@ -94,19 +94,19 @@ OBJ_THREAD = $(PATH_OBJ_THREAD)/main.o \
 thread: $(TARGET_THREAD)_$(NTHREAD)
 
 $(TARGET_THREAD)_$(NTHREAD): $(OBJ_THREAD)
-	$(CC) $(OBJ_THREAD) -o $@
+	$(CC) $(OBJ_THREAD) -o $@ -pthread
 	     
 $(PATH_OBJ_THREAD)/main.o: $(PATH_SRC_THREAD)/main.c $(PATH_OBJ_THREAD)/huffman.o
-	$(CC) -c $(CFLAGS) $(PATH_SRC_THREAD)/main.c -o $@ -lpthread
+	$(CC) -c $(CFLAGS) $(PATH_SRC_THREAD)/main.c -o $@ -pthread
 
 $(PATH_OBJ_THREAD)/encoder.o: $(PATH_SRC_THREAD)/encoder.c $(PATH_OBJ_THREAD)/huffman.o
-	$(CC) -c $(CFLAGS) $(PATH_SRC_THREAD)/encoder.c -o $@ -lpthread
+	$(CC) -c $(CFLAGS) $(PATH_SRC_THREAD)/encoder.c -o $@ -pthread
 
 $(PATH_OBJ_THREAD)/decoder.o: $(PATH_SRC_THREAD)/decoder.c $(PATH_OBJ_THREAD)/huffman.o
-	$(CC) -c $(CFLAGS) $(PATH_SRC_THREAD)/decoder.c -o $@ -lpthread
+	$(CC) -c $(CFLAGS) $(PATH_SRC_THREAD)/decoder.c -o $@ -pthread
 
 $(PATH_OBJ_THREAD)/huffman.o: $(PATH_SRC_THREAD)/huffman.c $(PATH_SRC_THREAD)/huffman.h
-	$(CC) -c $(CFLAGS) $(PATH_SRC_THREAD)/huffman.c -o $@ -lpthread
+	$(CC) -c $(CFLAGS) $(PATH_SRC_THREAD)/huffman.c -o $@ -pthread
 
 clean_thread:
 	$(RM) $(OBJ_THREAD)*

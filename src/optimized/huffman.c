@@ -164,7 +164,6 @@ void huffmanEncode (NODE_ARRAY *array) {
 		b = &(array->node[array->size-1]);
 		c = malloc(sizeof(NODE));
 		newNode(c, 0, a->frequency + b->frequency, a, b);
-		fprintf(stderr, "%u(%u) e %u(%u)  --->   %u(%u)\n", a->symbol, a->frequency, b->symbol, b->frequency, c->symbol, c->frequency);
 		removeLastNodes(array, 2);
 		insertSorted(array, c);
 	}

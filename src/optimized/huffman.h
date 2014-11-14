@@ -4,7 +4,7 @@
 #include <string.h>
 
 
-#define DEBUG						1
+//#define DEBUG						1
 
 #define STDOUT						stderr
 #define BYTE 						uint8_t
@@ -15,7 +15,7 @@
 #define SYMBOL						uint8_t
 #define SIZE						uint16_t // Imediatamente maior que SYMBOL
 #define POWER_SIZE					uint16_t // Imediatamente maior que SIZE
-#define FILE_SIZE					uint32_t // Tamanho máximo do arquivo
+#define FILE_SIZE					uint64_t // Tamanho máximo do arquivo
 #define BITS_CODIFICATION			8
 #define BYTE_BIT					8
 #define SIZEOF_SYMBOL				1
@@ -107,7 +107,7 @@ unsigned int power (unsigned int a, unsigned int b);
 void printTree (NODE *root, SIZE symbols);
 
 /* FUNÇÕES ENCODER */
-SYMBOL * fileToMemory(FILE *file, unsigned int *size);
+SYMBOL * fileToMemory(FILE *file, FILE_SIZE *size);
 FREQUENCY * memoryToFrequency(SYMBOL *memory, FILE_SIZE *size, SIZE *symbols, SYMBOL *eof);
 NODE_ARRAY * frequencyToNodeAray(FREQUENCY * frequency, SIZE symbols);
 void huffmanEncode (NODE_ARRAY *array);
